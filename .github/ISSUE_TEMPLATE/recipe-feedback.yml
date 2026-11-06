@@ -1,0 +1,49 @@
+name: Recipe feedback
+description: Report help received, unclear guidance, or a synthetic reproduction.
+title: "[Recipe] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Do not include real snapshots, player/room/Creep names, object IDs, tokens, Memory, private logs, account details, or code dumps.
+        Use invented values only. This form does not automatically redact secrets. Do not submit anything you are not authorized to publish.
+  - type: dropdown
+    id: recipe
+    attributes:
+      label: Recipe
+      options:
+        - Spawn energy blocked
+        - Movement fatigue blocked
+        - Harvest out of range
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: What happened?
+      options:
+        - Helped me understand the blocker
+        - Guidance was unclear
+        - Synthetic example did not match the expected diagnosis
+        - A documented boundary needs clarification
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Synthetic reproduction and observations
+      description: Describe the recipe step, invented input if needed, expected classification, and observed result. Say whether you used only the document or also the optional Doctor. No live player data.
+    validations:
+      required: true
+  - type: textarea
+    id: improvement
+    attributes:
+      label: Suggested improvement
+      description: Explain the smallest clarification that would help.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public submission check
+      options:
+        - label: I reviewed this report and included only information I am authorized to publish, with no real snapshots, secrets, or private player data.
+          required: true
